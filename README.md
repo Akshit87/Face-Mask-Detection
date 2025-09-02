@@ -4,15 +4,10 @@ import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
 
-# Load the pre-trained face mask detection model
 model = load_model("mask_detector_model.h5")
-
-# Load the OpenCV face detector (Haar Cascade)
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
-# Start video capture
 cap = cv2.VideoCapture(0)
-
 while True:
     ret, frame = cap.read()
     if not ret:
